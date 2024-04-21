@@ -1,0 +1,33 @@
+<!-- my_template.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <center>
+        <h1>Total matches found: {{ results|length }}</h1>
+    </center>
+        <ol>
+        {% for result in results %}
+            <li>{{ result.primary_text }}, {{ result.secondary_text }}</li><br>
+        {% endfor %}
+        </ol>
+    <center>
+        <h1>Enter Value</h1>
+        <form method="post" action="{% url 'search_location' %}">
+            {% csrf_token %}
+            <label for="serial_number">Enter the serial number associated with the location you desire:</label>
+            <input type="text" id="serial_number" name="serial_number"><br>
+            <h1>OR</h1>
+            <label for="longitude">Enter the longitude:</label>
+            <input type="text" id="longitude" name="longitude"><br><br>
+            <label for="latitude">Enter the latitude:</label>
+            <input type="text" id="latitude" name="latitude"><br><br>
+            <button type="submit">Search</button>
+        </form>
+    </center>
+    
+</body>
+</html>

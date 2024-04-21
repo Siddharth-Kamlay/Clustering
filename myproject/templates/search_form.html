@@ -1,0 +1,22 @@
+<!-- search_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Form</title>
+</head>
+<body>
+    <center>
+        <h1>Enter Location</h1>
+        <br><br><br><br>
+        <form method="post" action="{% url 'autocomplete_search' %}">
+            {% csrf_token %}
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="PVR"><br><br>
+            <button type="submit">Search</button><br><br>
+        </form>
+    </center>
+    
+</body>
+</html>
